@@ -1,5 +1,4 @@
 import resume from '../data/resume';
-import { Link } from 'react-router-dom';
 
 export const Contact = () => {
     return (
