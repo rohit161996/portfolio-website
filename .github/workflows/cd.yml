@@ -34,9 +34,9 @@ jobs:
     # Deploy to Bunny CDN using FTP
     - name: Deploy to Bunny CDN
       env:
-        BUNNY_FTP_HOST: ${{ secrets.BUNNY_FTP_HOST }}
-        BUNNY_FTP_USERNAME: ${{ secrets.BUNNY_FTP_USERNAME }}
-        BUNNY_FTP_PASSWORD: ${{ secrets.BUNNY_FTP_PASSWORD }}
+        BUNNY_FTP_HOST: sg.storage.bunnycdn.com
+        BUNNY_FTP_USERNAME: rohit-ramchandani-portfolio-page
+        BUNNY_FTP_PASSWORD: 1479f111-2ebb-424b-bfc0ff86569a-f904-4087
       run: |
         if [ ! -d "dist" ]; then
           echo "Error: dist/ directory does not exist. Build step may have failed."
