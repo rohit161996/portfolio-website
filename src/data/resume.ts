@@ -5,16 +5,12 @@ export const resume = {
     phone2: '+91 -7055438249',
     email: 'ramchandani.rohit16@gmail.com',
     links: {
-      linkedin: '#',
-      github: '#',
+      linkedin: 'https://www.linkedin.com/in/rohit-ramchandani-1073b7135/?skipRedirect=true',
+      github: 'https://github.com/rohit161996',
     },
   },
 
-  about: `Experienced senior software engineer with 4+ years of expertise in full -stack web development and
-algorithm  design. Skilled in  Spring Boot, Hibernate, Nodejs, Docker, React, React Native  and AWS. Adept
-at collaborating  with cross -functional teams to deliver scalable, high -quality applications that meet
-business objectives.  Demonstrated expertise in enhancing system efficiency, automating workflows,
-improving user productivity.`,
+  about: `Experienced senior software engineer with 4+ years of expertise in full -stack web development and algorithm  design. Skilled in  Spring Boot, Hibernate, Nodejs, Docker, React, React Native  and AWS. Adept at collaborating  with cross -functional teams to deliver scalable, high -quality applications that meet business objectives.  Demonstrated expertise in enhancing system efficiency, automating workflows, improving user productivity.`,
 
   experience: [
     {
@@ -103,6 +99,10 @@ improving user productivity.`,
       title: 'Pothole Recognition System',
       desc: `Developed a system to detect potholes and provide real -time alerts to vehicles, improving road safety and driving experience. Utilized image processing techniques such as binarization, edge detection, and blob recognition with OpenCV for accurate pothole identification. Achieved 95% accuracy on aggregated test datasets, demonstrating high reliability in diverse road conditions.`,
     },
+    {
+      title: 'Breast Cancer Prediction',
+      desc: `Developed a system to detect potholes and provide real -time alerts to vehicles, improving road safety and driving experience. Utilized image processing techniques such as binarization, edge detection, and blob recognition with OpenCV for accurate pothole identification. Achieved 95% accuracy on aggregated test datasets, demonstrating high reliability in diverse road conditions.`,
+    }
   ],
 };
 

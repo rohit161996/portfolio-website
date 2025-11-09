@@ -35,7 +35,7 @@ export const NavBar = () => {
                 <Link to="/" className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-md bg-indigo-600 text-white flex items-center justify-center font-bold">RR</div>
                     <span className="font-semibold">
-                        Rohit
+                        Rohit Ramchandani
                     </span>
                 </Link>
 
@@ -67,7 +67,9 @@ export const NavBar = () => {
                     </button>
 
                     <div className="hidden md:flex items-center">
-                        <a href="#contact" className="px-4 py-2 rounded-md bg-indigo-600 text-white text-sm">Get in touch</a>
+                        <Link to="/contact" className="px-4 py-2 rounded-md bg-indigo-600 text-white text-sm">
+                            Get in touch
+                        </Link>
                     </div>
                 </div>
             </div>

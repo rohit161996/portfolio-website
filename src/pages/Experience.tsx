@@ -2,23 +2,36 @@ import resume from '../data/resume';
 
 export const Experience = () => {
     return (
-        <div className="py-10">
-            <h2 className="text-2xl font-semibold">Experience</h2>
-            <div className="mt-6 space-y-8">
+        <section className="max-w-5xl mx-auto px-6 py-16">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-10">
+                Experience
+            </h2>
+
+            <div className="space-y-10">
                 {resume.experience.map((job, idx) => (
-                    <div key={idx}>
-                        <div className="flex items-start justify-between">
+                    <div
+                        key={idx}
+                        className="bg-white dark:bg-gray-900 border border-slate-200 dark:border-slate-700 
+                        rounded-xl shadow-sm hover:shadow-md transition p-6"
+                    >
+                        {/* Header */}
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                             <div>
-                                <h3 className="font-semibold">
-                                    {job.title} — {job.company}
+                                <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
+                                    {job.title}
                                 </h3>
-                                <div className="text-sm text-slate-500 dark:text-slate-400">
-                                    {job.location} • {job.dates}
-                                </div>
+                                <p className="text-sm text-slate-600 dark:text-slate-400">
+                                    {job.company} • {job.location}
+                                </p>
                             </div>
+
+                            <p className="text-sm text-slate-500 dark:text-slate-400">
+                                {job.dates}
+                            </p>
                         </div>
 
-                        <ul className="mt-3 list-disc ml-5 text-slate-700 dark:text-slate-300 space-y-2">
+                        {/* Bullet List */}
+                        <ul className="mt-4 list-disc list-inside text-slate-700 dark:text-slate-300 leading-relaxed space-y-2">
                             {job.bullets.map((b, i) => (
                                 <li key={i}>{b}</li>
                             ))}
@@ -26,7 +39,7 @@ export const Experience = () => {
                     </div>
                 ))}
             </div>
-        </div>
+        </section>
     );
 };
 
