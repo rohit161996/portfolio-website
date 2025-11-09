@@ -2,10 +2,8 @@
 name: Continuous Deployment
 
 on:
-  # Deploy when pushing to main branch
   push:
     branches: [ main ]
-  # Allow manual deployment from Actions tab
   workflow_dispatch:
 
 jobs:
@@ -27,19 +25,18 @@ jobs:
     - name: Build
       run: npm run build
       
-    # Install FTP client for Bunny CDN
     - name: Install lftp
       run: sudo apt-get install -y lftp
 
-    # Deploy to Bunny CDN using FTP
-    - name: Deploy to Bunny CDN
+    - name: Deploy to Bunny CDN (Storage)
       env:
-        BUNNY_FTP_HOST: sg.storage.bunnycdn.com
-        BUNNY_FTP_USERNAME: rohit-ramchandani-portfolio-page
-        BUNNY_FTP_PASSWORD: 1479f111-2ebb-424b-bfc0ff86569a-f904-4087
+        BUNNY_FTP_HOST: ${{ secrets.BUNNY_FTP_HOST }}
+        BUNNY_FTP_USERNAME: ${{ secrets.BUNNY_FTP_USERNAME }}
+        BUNNY_FTP_PASSWORD: ${{ secrets.BUNNY_FTP_PASSWORD }}
       run: |
-        if [ ! -d "dist" ]; then
-          echo "Error: dist/ directory does not exist. Build step may have failed."
-          exit 1
-        fi
-        lftp -u "$BUNNY_FTP_USERNAME","$BUNNY_FTP_PASSWORD" "$BUNNY_FTP_HOST" -e "set ssl:verify-certificate no; set ftp:ssl-force true; set ftp:ssl-protect-data true; set xfer:log yes; mirror -R --delete-first --parallel=10 --verbose ./dist/ /; bye;"
+        lftp -u "$BUNNY_FTP_USERNAME","$BUNNY_FTP_PASSWORD" "$BUNNY_FTP_HOST" -e "
+          set ssl:verify-certificate no;
+          set ftp:ssl-force true;
+          set ftp:ssl-protect-data true;
+          mirror -R --delete-first --parallel=10 ./dist/ /;
+          bye"
