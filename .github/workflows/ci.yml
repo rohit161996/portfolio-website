@@ -36,10 +36,3 @@ jobs:
       with:
         path: dist
         key: ${{ runner.os }}-build-${{ github.sha }}
-
-  # Optional: Add automated deployment step here later
-  # deploy:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   if: github.ref == 'refs/heads/main'
-  #   steps: ...
