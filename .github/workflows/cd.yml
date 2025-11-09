@@ -37,10 +37,8 @@ jobs:
         BUNNY_FTP_USERNAME: ${{ secrets.BUNNY_FTP_USERNAME }}
         BUNNY_FTP_PASSWORD: ${{ secrets.BUNNY_FTP_PASSWORD }}
       run: |
-        lftp -u "$BUNNY_FTP_USERNAME","$BUNNY_FTP_PASSWORD" "$BUNNY_FTP_HOST" <<EOF
-        set ssl:verify-certificate no
-        set ftp:ssl-force true
-        set ftp:ssl-protect-data true
-        mirror -R ./dist/ /
-        bye
-EOF
+        if [ ! -d "dist" ]; then
+          echo "Error: dist/ directory does not exist. Build step may have failed."
+          exit 1
+        fi
+        lftp -u "$BUNNY_FTP_USERNAME","$BUNNY_FTP_PASSWORD" "$BUNNY_FTP_HOST" -e "set ssl:verify-certificate no; set ftp:ssl-force true; set ftp:ssl-protect-data true; set xfer:log yes; mirror -R --delete-first --parallel=10 --verbose ./dist/ /; bye;"
