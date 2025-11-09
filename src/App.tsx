@@ -11,10 +11,10 @@ import Contact from './pages/Contact';
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-slate-50 text-slate-900">
+      <div className="min-h-screen flex flex-col bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100">
         <NavBar />
 
-        <main className="max-w-5xl mx-auto px-6 py-10">
+        <main className="flex-grow max-w-5xl mx-auto px-6 py-10">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
